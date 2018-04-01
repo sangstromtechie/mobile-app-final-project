@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="score_paint_text_size">24</integer>
+    <integer name="level_paint_text_size">24</integer>
+    <integer name="title_score_paint_text_size">28</integer>
+    <integer name="yellow_speed">10</integer>
+    <integer name="yellow_size">8</integer>
+    <integer name="black_speed">12</integer>
+    <integer name="black_size">14</integer>
+    <integer name="player_tap_speed">-14</integer>
+    <integer name="player_fall_speed">1</integer>
+    <integer name="score_x_position">10</integer>
+    <integer name="score_y_position">40</integer>
+    <integer name="level_y_position">40</integer>
+    <integer name="life_y_position">20</integer>
+</resources>
