@@ -39,7 +39,7 @@ public class SoundPlayer {
             mediaPlayer = null;
         }
 
-        mediaPlayer = MediaPlayer.create(context, R.raw.);
+        mediaPlayer = MediaPlayer.create(context, R.raw.bg_music);
         mediaPlayer.setLooping(true);
         mediaPlayer.setVolume(0.7f, 0.7f);
     }

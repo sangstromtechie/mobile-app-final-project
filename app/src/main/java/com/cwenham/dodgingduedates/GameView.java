@@ -6,8 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -18,9 +18,12 @@ public class GameView extends View {
 
     //Canvas
     private int canvasWidth, canvasHeight;
+    private Rect dest;
+    private Paint paint;
+
 
     //Player
-    private Bitmap player;
+    private Bitmap player[] = new Bitmap[2];
     private int playerX = 10;
     private int playerY;
     private int playerSpeed;
@@ -83,7 +86,8 @@ public class GameView extends View {
     public GameView(Context context) {
         super(context);
 
-        player = BitmapFactory.decodeResource(getResources(), R.drawable.player);
+        player[0] = BitmapFactory.decodeResource(getResources(), R.drawable.player2);
+        player[1] = BitmapFactory.decodeResource(getResources(), R.drawable.player1);
 
         startImage = BitmapFactory.decodeResource(getResources(), R.drawable.start);
         bgImage = BitmapFactory.decodeResource(getResources(), R.drawable.bg);
@@ -129,21 +133,24 @@ public class GameView extends View {
 
         canvasWidth = canvas.getWidth();
         canvasHeight = canvas.getHeight();
+        dest =  new Rect(0, 0, getWidth(), getHeight());
+        paint = new Paint();
+        paint.setFilterBitmap(true);
 
         btnImageX = canvasWidth / 2 - startBtn.getWidth() / 2;
         btnImageY = canvasHeight / 2 - (int)(startBtn.getHeight() * 1.5);
 
         switch (gameState) {
             case GAME_START:
-                canvas.drawBitmap(startImage, 0, 0, null);
+                canvas.drawBitmap(startImage, null, dest, paint);
                 drawStart(canvas);
                 break;
             case GAME_PLAY:
-                canvas.drawBitmap(bgImage, 0, 0, null);
+                canvas.drawBitmap(bgImage, null, dest, paint);
                 drawPlay(canvas);
                 break;
             case GAME_OVER:
-                canvas.drawBitmap(gameOverImage, 0, 0, null);
+                canvas.drawBitmap(gameOverImage, null, dest, paint);
                 drawOver(canvas);
                 break;
         }
@@ -152,8 +159,8 @@ public class GameView extends View {
 
     public void drawPlay(Canvas canvas) {
         //Player
-        int minPlayerY = player.getHeight();
-        int maxPlayerY = canvasHeight - player.getHeight() * 3;
+        int minPlayerY = player[0].getHeight();
+        int maxPlayerY = canvasHeight - player[0].getHeight() * 3;
         playerY += playerSpeed;
         if(playerY < minPlayerY)
             playerY = minPlayerY;
@@ -164,10 +171,10 @@ public class GameView extends View {
         playerSpeed += PLAYER_FALL_SPEED;
 
         if(touch_flg) {
-            canvas.drawBitmap(player, playerX, playerY, null);
+            canvas.drawBitmap(player[1], playerX, playerY, null);
             touch_flg = false;
         } else {
-            canvas.drawBitmap(player, playerX, playerY, null);
+            canvas.drawBitmap(player[0], playerX, playerY, null);
         }
 
         //Yellow
@@ -266,8 +273,8 @@ public class GameView extends View {
     }
 
     public boolean hitCheck(int x, int y) {
-        if(playerX < x && x < (playerX + player.getWidth()) &&
-                playerY < y && y < (playerY + player.getHeight())) {
+        if(playerX < x && x < (playerX + player[0].getWidth()) &&
+                playerY < y && y < (playerY + player[0].getHeight())) {
             return true;
         }
         return false;
