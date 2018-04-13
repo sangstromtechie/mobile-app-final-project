@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "901750617760",
+    "firebase_url": "https://dungeonadventurer.firebaseio.com",
+    "project_id": "dungeonadventurer",
+    "storage_bucket": "dungeonadventurer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901750617760:android:1c58d69db7b9a51b",
+        "android_client_info": {
+          "package_name": "com.cwenham.dodgingduedates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901750617760-61bphpmreid38ak5mfuf900c0hvpk5vm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cwenham.dodgingduedates",
+            "certificate_hash": "f2ec98027a56c84c87ee83f5ef3858e3c4f50e5a"
+          }
+        },
+        {
+          "client_id": "901750617760-5lmtef4ehh3t6fhoohk21b6vg2re341c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8EBwazFFEPXgthWelKC8ReAJhSCTH9P4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901750617760-5lmtef4ehh3t6fhoohk21b6vg2re341c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
